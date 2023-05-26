@@ -15,10 +15,10 @@ int main(void)
 		for (p = (n + 1); p <= 99; p++)
 		{
 			{
-				putchar('0' + (n / 10));
+				putchar('0' + (p % 10));
 				putchar('0' + (n % 10));
-				putchar(',');
-				putchar('0' + (p / 10));
+				putchar(' ');
+				putchar('0' + (n / 10));
 				putchar('0' + (p % 10));
 		}}}
 	putchar('\n');
