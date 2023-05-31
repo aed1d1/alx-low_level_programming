@@ -11,10 +11,10 @@
 int main(void)
 {
 	char pswd[84];
-	int index = 0,
-	int sum = 0,
-	int diffhalf1,
-	int diffhalf2,
+	int index = 0;
+	int sum = 0;
+	int diffhalf1;
+	int diffhalf2;
 
 	srand(time(0));
 
