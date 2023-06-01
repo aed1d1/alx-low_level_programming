@@ -11,33 +11,18 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int a, b, c;
-
-	/* counting the length of the 2 strings*/
-	for (a = 0; *(src + a) != 0; a++)
-	{}
-	for (c = 0; *(dest + c) != 0; c++)
-	{} c--;
-
-	if (a < n)
-	{
-		for (b = 0; b < a; b++)
-			*(dest + b) = *(src + b);
-		if (c < a)
-			*(dest + b) = '\0';
-		else
-		{
-			for (b = a; b < n; b++)
-				*(dest + b) = '\0';
-		}
-	}
+	int a;
 	
-	else
+	a = 0;
+	while (a < n && src[a] != '\0')
 	{
-		for (b = 0; b < n; b++)
-			*(dest + b) = *(src + b);
-		if (c < a)
-			*(dest + b) = '\0';
+		dest[a] = src[a];
+		a++;
+	}
+	while (a < n)
+	{
+		dest[a] = '\0';
+		a++;
 	}
 	return (dest);
 }
