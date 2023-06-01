@@ -6,27 +6,30 @@
  * Return: Pointer to the modified string
  */
 
-char *cap_string(char *)
+char *cap_string(char *str)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; n[i] != 0; i++)
+	while (str[i])
 	{
-		if (n[i] >= 97 && n[i] <= 122 && i != 0)
-		{
-			if (n[i - 1] == ' ' || n[i - 1] == '\t' || n[i - 1] == '\n')
-				n[i] = n[i] - 32;
-			else if (n[i - 1] == ',' || n[i - 1] == ';' || n[i - 1] == '.')
-				n[i] = n[i] - 32;
-			else if (n[i - 1] == '!' || n[i - 1] == '?' || n[i - 1] == '"')
-				n[i] = n[i] - 32;
-			else if (n[i - 1] == '(' || n[i - 1] == ')' || n[i - 1] == '{')
-				n[i] = n[i] - 32;
-			else if (n[i - 1] == '}')
-				n[i] = n[i] - 32;
-		}
-		else if (n[i] >= 97 && n[i] <= 122 && i == 0)
-			n[i] = n[i] - 32;
+		while (!(str[i] >= 'a' && str[i] <= 'z'))
+			i++;
+		if (str[a - 1] == ' ' ||
+				str[i - 1] == '\t' ||
+				str[i - 1] == '\n' ||
+				str[i - 1] == ',' ||
+				str[i - 1] == ';' ||
+				str[i - 1] == '.' ||
+				str[i - 1] == '!' ||
+				str[i - 1] == '?' ||
+				str[i - 1] == '"' ||
+				str[i - 1] == '(' ||
+				str[i - 1] == ')' ||
+				str[i - 1] == '{' ||
+				str[i - 1] == '}' ||
+				i == 0)
+			str[i] -= 32;
+		i++;
 	}
-	return (n);
+	return (str);
 }
