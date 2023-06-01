@@ -9,18 +9,35 @@
  * Return: A pointer to the resulting string dest.
  */
 
-char _*strncpy(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int index = 0, len = 0;
+	int a, b, c;
 
-	while (src[index++])
-		len++;
+	/* counting the length of the 2 strings*/
+	for (a = 0; *(src + a) != 0; a++)
+	{}
+	for (c = 0; *(dest + c) != 0; c++)
+	{} c--;
 
-	for (index = 0; src[index] && index < n; index++)
-		dest[index] = src[index];
-
-	for (index = len; index < n; index++)
-		dest[index] = '\0';
-
+	if (a < n)
+	{
+		for (b = 0; b < a; b++)
+			*(dest + b) = *(src + b);
+		if (c < a)
+			*(dest + b) = '\0';
+		else
+		{
+			for (b = a; b < n; b++)
+				*(dest + b) = '\0';
+		}
+	}
+	
+	else
+	{
+		for (b = 0; b < n; b++)
+			*(dest + b) = *(src + b);
+		if (c < a)
+			*(dest + b) = '\0';
+	}
 	return (dest);
 }
