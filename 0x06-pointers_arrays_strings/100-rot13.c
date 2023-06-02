@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * rot13 - the encoder
@@ -16,12 +15,14 @@ char *rot13(char *s)
 
 	for (a = 0; s[a] != '\0'; a++)
 	{
-		for (b = 0; b < 52; b++)
+		for (b = 0; s1[b] != '\0'; b++)
 		{
 			if (s[a] == s1[b])
 			{
 				s[a] == srot[b];
 				break;
-			}}}
+			}
+		}
+	}
 	return (s);
 }
