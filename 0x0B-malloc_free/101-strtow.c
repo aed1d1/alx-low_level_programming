@@ -1,8 +1,5 @@
 #include "main.h"
 
-int count_words(char *s)
-char **strtow(char *str)
-
 /**
  * count_word - function to count num of words in a string
  * @s: string to evaluate
