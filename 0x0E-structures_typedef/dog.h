@@ -1,14 +1,16 @@
 #ifndef STRUCT_H
 #define STRUCT_H
-
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
-* struct dog - a dog's basic info
-* @name: points to the dog's name
-* @age: points to the dog's age
-* @owner: points to the owner's name
-* Description: Longer description
-*/
+ * struct dog - a dog's basic info
+ * @name: points to the dog's name
+ * @age: points to the dog's age
+ * @owner: points to the owner's name
+ * Description: Longer description
+ */
+
 struct dog
 {
 	char *name;
