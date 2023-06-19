@@ -1,78 +1,50 @@
 #include "dog.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: string to evaluate
- * Return: the length of the string
- */
-
-int _strlen(char *s)
-{
-	int a = 0;
-
-	while (s[a] != '\0')
-		a++;
-	return (a);
-}
-
-/**
- * _strcpy - copies the string pointed to by src
- * including the terminating null byte (\0)
- * to the buffer pointed to by dest
- * @dest: pointer to the buffer in which we copy the string
- * @src: string to be copied
- * Return: the pointer to dest
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	int len = 0;
-	int i;
-
-	while (src[len] != '\0')
-		len++;
-
-	for (i = 0; i < len; i++)
-		dest[i] = src[i];
-	dest[i] = '\0';
-
-	return (dest);
-}
-
-/**
- * new_dog - creates a new dog
- * @name: name of the dog
- * @age: age of the dog
- * @owner: owner of the dog
- * Return: pointer to the new dog (Success), NULL otherwise
+ * new_dog - it creates a new dog
+ * @name: points to the name of the dog
+ * @age: is theage of the dog
+ * @owner: points to the name of the owner
+ * Return: a pointer of the new dog in the memory
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog;
-	int len1 = _strlen(name);
-	int len2 = _strlen(owner);
+	int a, b, c, d;
+	dog_t *e;
 
-	dog = malloc(sizeof(dog_t));
-	if (dog == NULL)
-		return (NULL);
-
-		dog->name = malloc(sizeof(char) * (len1 + 1));
-	if (dog->name == NULL)
+	for (a = 0; name != NULL && name[a] != '\0'; a++)
+	{}
+	for  (b = 0; owner != NULL && owner[b] != '\0'; b++)
+	{}
+	e = malloc(sizeof(dog_t));
+	if (e == NULL)
 	{
-		free(dog);
 		return (NULL);
 	}
-	dog->owner = malloc(sizeof(char) * (len2 + 1));
-	if (dog->owner == NULL)
+	e->name = malloc(sizeof(char) * a + 1);
+	if (e->name == NULL)
 	{
-		free(dog);
-		free(dog->name);
+		free(e);
 		return (NULL);
 	}
-	_strcpy(dog->name, name);
-	_strcpy(dog->owner, owner);
-	dog->age = age;
-
-	return (dog);
+	e->owner = malloc(sizeof(char) * b + 1);
+	if (e->owner == NULL)
+	{
+		free(e->name);
+		free(e);
+		return (NULL);
+	}
+	for (c = 0; c < a; c++)
+	{
+		e->name[c] = name[c];
+	}
+	for (d = 0; d < b; d++)
+	{
+		e->owner[d] = owner[d];
+	}
+	e->name[a] = '\0';
+	e->owner[b] = '\0';
+	e->age = age;
+	return (e);
 }
