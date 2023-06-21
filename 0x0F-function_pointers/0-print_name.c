@@ -8,10 +8,13 @@
  * Return: Nothing
  */
 
-void print_name(char *name, void (*f)(char *))
+void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	if (name == NULL || f == NULL)
-		return;
+	size_t i;
 
-	f(name);
-}
+	if (array != NULL && action != NULL)
+	{
+		for (i = 0; size > 0 && i < size; i++)
+		{
+			action(array[i]);
+		}}}
